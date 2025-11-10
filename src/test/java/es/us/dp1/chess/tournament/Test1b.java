@@ -23,7 +23,7 @@ public class Test1b extends ReflexiveTest{
 
     @Test
     public void test1bSeasonMatchAnnotations() {
-        checkThatFieldIsAnnotatedWith(Season.class, "matches", ManyToMany.class);        
+        checkThatFieldIsAnnotatedWith(Season.class, "matches", OneToMany.class);        
     }
 
      @Test
