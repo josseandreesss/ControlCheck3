@@ -46,7 +46,9 @@ public class Test3 extends ReflexiveTest{
     public void test3CommunityServiceCanSaveCommunitiesWithValidPlayersAndMax() throws MalformedCommunityException {        
         when(cr.save(any(Community.class))).thenReturn(null);
         User p1 = createUser("Player 1");
+        p1.setId(21);
         User p2 = createUser("Player 2");
+        p2.setId(22);
         Community c = createCommunity();
         ChessMatch m1 = createMatch(p1, p2);
         ChessMatch m2 = createMatch(p2, p1);
@@ -64,7 +66,9 @@ public class Test3 extends ReflexiveTest{
     public void test3CommunityServiceCanSaveCommunitiesWithValidPlayersAndMaxAndMoreThanOneSeason() throws MalformedCommunityException {        
         when(cr.save(any(Community.class))).thenReturn(null);
         User p1 = createUser("Player 1");
+        p1.setId(21);
         User p2 = createUser("Player 2");
+        p2.setId(22);
         Community c = createCommunity();
         ChessMatch m1 = createMatch(p1, p2);
         ChessMatch m2 = createMatch(p2, p1);
@@ -84,8 +88,11 @@ public class Test3 extends ReflexiveTest{
     public void test3CommunityServiceCanNotSaveCommunitiesWithInvalidPlayers() throws MalformedCommunityException {
         lenient().when(cr.save(any(Community.class))).thenReturn(null);
         User p1 = createUser("Player 1");
+        p1.setId(21);
         User p2 = createUser("Player 2");
+        p2.setId(22);
         User p3 = createUser("Player 3");
+        p3.setId(23);
         Community c = createCommunity();
         ChessMatch m1 = createMatch(p1, p2);
         ChessMatch m2 = createMatch(p2, p1);
@@ -105,7 +112,9 @@ public class Test3 extends ReflexiveTest{
     public void test3CommunityServiceCanNotSaveCommunitiesWithTooMuchPlayers() throws MalformedCommunityException {
         lenient().when(cr.save(any(Community.class))).thenReturn(null);
         User p1 = createUser("Player 1");
+        p1.setId(21);
         User p2 = createUser("Player 2");
+        p2.setId(22);
         Community c = createCommunity();
         ChessMatch m1 = createMatch(p1, p2);
         ChessMatch m2 = createMatch(p2, p1);
