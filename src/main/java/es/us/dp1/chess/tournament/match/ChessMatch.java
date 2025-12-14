@@ -4,9 +4,6 @@ import java.time.LocalDateTime;
 
 import es.us.dp1.chess.tournament.model.NamedEntity;
 import es.us.dp1.chess.tournament.user.User;
-
-import java.lang.Cloneable;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -31,6 +28,9 @@ public class ChessMatch extends NamedEntity implements Cloneable {
 
     @ManyToOne
     User winner;
+
+    @ManyToOne
+    Season season;
 
     @OneToOne(cascade = CascadeType.ALL)
     ChessBoard board;

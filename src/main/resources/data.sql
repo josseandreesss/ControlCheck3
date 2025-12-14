@@ -129,7 +129,21 @@ INSERT INTO Piece(id, type_name, color, position_id, board_id) VALUES
     (153, 'PAWN', 'BLACK', 55, 15),
     (154, 'PAWN', 'BLACK', 63, 15);
 
-    
+-- Community
+INSERT INTO community (id, name, location, max_players)
+VALUES (1, 'Ajedrez Sevilla', 'Sevilla', 500);
+
+INSERT INTO season (id, name, start_date, end_date, community_id) VALUES
+  (1, 'Juegos Municipales 2024-25', '2024-09-01', '2025-05-31', 1),
+  (2, 'Temporada Oficial 2025-26', '2025-10-15', '2026-06-15', 1);
+
+INSERT INTO rating (id, elo, wins, losses, draws, season_id, player_id) VALUES
+  (1, 1560, 4, 2, 1, 1, 4),
+  (2, 1250, 2, 2, 0, 1, 5),
+  (3, 1000, 0, 0, 4, 1, 6),
+  (4, 2080, 8, 1, 2, 2, 4),
+  (5, 1310, 4, 6, 1, 2, 5),
+  (6, 1567, 2, 0, 0, 2, 6);
 
 -- ==========================================================
 -- PARTIDA 1:
@@ -137,8 +151,8 @@ INSERT INTO Piece(id, type_name, color, position_id, board_id) VALUES
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (101, TRUE, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (1, 'Partida 1', CURRENT_TIMESTAMP(), NULL, 300,  101, 4, 5);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (1, 'Partida 1', CURRENT_TIMESTAMP(), NULL, 300,  101, 4, 5, 1);
 
 
 -- ==========================================================
@@ -147,8 +161,8 @@ VALUES (1, 'Partida 1', CURRENT_TIMESTAMP(), NULL, 300,  101, 4, 5);
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (102, true, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (2, 'Partida 2', CURRENT_TIMESTAMP(), NULL, 300, 102, 5, 4);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (2, 'Partida 2', CURRENT_TIMESTAMP(), NULL, 300, 102, 5, 4, 1);
 
 
 -- ==========================================================
@@ -157,8 +171,8 @@ VALUES (2, 'Partida 2', CURRENT_TIMESTAMP(), NULL, 300, 102, 5, 4);
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (103, TRUE, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (3, 'Partida 3', CURRENT_TIMESTAMP(), NULL, 300,  103, 5, 6);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (3, 'Partida 3', CURRENT_TIMESTAMP(), NULL, 300,  103, 5, 6, 1);
 
 
 -- ==========================================================
@@ -167,8 +181,8 @@ VALUES (3, 'Partida 3', CURRENT_TIMESTAMP(), NULL, 300,  103, 5, 6);
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (104, true, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (4, 'Partida 4', CURRENT_TIMESTAMP(), NULL, 300, 104, 4, 5);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (4, 'Partida 4', CURRENT_TIMESTAMP(), NULL, 300, 104, 4, 5, 2);
 
 
 -- ==========================================================
@@ -177,8 +191,8 @@ VALUES (4, 'Partida 4', CURRENT_TIMESTAMP(), NULL, 300, 104, 4, 5);
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (105, TRUE, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (5, 'Partida 5', CURRENT_TIMESTAMP(), NULL, 300, 105, 5, 4);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (5, 'Partida 5', CURRENT_TIMESTAMP(), NULL, 300, 105, 5, 4, 2);
 
 
 -- ==========================================================
@@ -187,11 +201,8 @@ VALUES (5, 'Partida 5', CURRENT_TIMESTAMP(), NULL, 300, 105, 5, 4);
 INSERT INTO chess_board (id, creator_turn, current_turn_start, on_check)
 VALUES (106, true, CURRENT_TIMESTAMP(), false);
 
-INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id)
-VALUES (6, 'Partida 6', CURRENT_TIMESTAMP(), NULL, 300, 106, 5, 6);
+INSERT INTO chess_match (id, name, start, finish, turn_duration,  board_id, white_player_id, black_player_id, season_id)
+VALUES (6, 'Partida 6', CURRENT_TIMESTAMP(), NULL, 300, 106, 5, 6, 2);
 
 
 
--- Community
-INSERT INTO community (id, name, location, max_players)
-VALUES (1, 'Ajedrez Sevilla', 'Sevilla', 500);

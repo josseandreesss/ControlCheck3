@@ -1,8 +1,16 @@
 package es.us.dp1.chess.tournament.match;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import es.us.dp1.chess.tournament.exceptions.ResourceNotFoundException;
+
+@Service
 public class SeasonService {
 
     SeasonRepository repository;
@@ -11,24 +19,28 @@ public class SeasonService {
         this.repository = repository.isPresent()?repository.get():null;
     }
 
+    @Transactional(readOnly = true)
     public List<Rating> getStandings(Season s) {
-        // TODO: implement this method to solve Exercise 4a
-        return null;
+        List<Rating> standings = s.getRatings().stream().sorted(Comparator.comparingInt(Rating::getElo).reversed()).collect(Collectors.toList());
+        return standings;
     }
 
+    @Transactional(readOnly = true)
     public List<Season> getAll() {
-        // TODO: implement this method to solve Exercise 4a
-        return null;
+        List<Season> seasons = repository.findAll();
+        return seasons;
     }
 
+    @Transactional(readOnly = true)
     public Season getById(Integer i) {
-        // TODO: implement this method to solve Exercise 4a
-        return null;
+        Season season = repository.findById(i).orElseThrow(() -> new ResourceNotFoundException("SeasonId"));
+        return season;
     }
 
+    @Transactional
     public Season save(Season season) {
-        // TODO: implement this method to solve Exercise 4a
-        return null;
+        repository.save(season);
+        return season;
     }
     
 }

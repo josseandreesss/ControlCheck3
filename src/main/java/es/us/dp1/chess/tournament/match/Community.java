@@ -4,9 +4,11 @@ import java.util.List;
 
 import es.us.dp1.chess.tournament.model.NamedEntity;
 import es.us.dp1.chess.tournament.user.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Transient;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +23,8 @@ public class Community extends NamedEntity {
     @ManyToMany
     List<User> members;
 
-    @Transient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "community")
+    @NotNull
     List<Season> seasons;
     
 }

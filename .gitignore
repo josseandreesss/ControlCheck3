@@ -1,0 +1,33 @@
+# --- JAVA / MAVEN (Backend) ---
+/target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# --- NODE / REACT (Frontend) ---
+node_modules/
+/frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/build/
+/dist/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- IDEs (Configuraciones de tu editor que no deben subirse) ---
+.idea/
+*.iml
+.vscode/
+*.sublime-workspace
+.classpath
+.project
+.settings/
+
+# --- SISTEMA OPERATIVO ---
+.DS_Store
+Thumbs.db
