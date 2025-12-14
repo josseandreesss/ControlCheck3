@@ -39,7 +39,7 @@ export default function StandingsListing(props) {
                 <tbody>
                     {ratings.map((rating) => (
                         <tr key = {rating.id}>
-                            <td>{rating.player.username}</td>
+                            <td>{rating.player?.username}</td>
                             <td>{rating.elo}</td>
                             <td>{rating.wins}</td>
                             <td>{rating.losses}</td>
